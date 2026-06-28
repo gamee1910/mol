@@ -1,2 +1,13 @@
+CC = cc
+CFLAGS = -std=c99 -Wall
+SRC = src/parsing.c src/mpc.c
+TARGET = build/parsing
+
 all:
-	cc -std=c99 -Wall main.c -ledit -o build/main
+	$(CC) $(CFLAGS) $(SRC) -ledit -lm -o $(TARGET)
+
+run: all
+	./$(TARGET)
+
+clean:
+	rm -f $(TARGET)
